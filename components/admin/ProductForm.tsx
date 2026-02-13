@@ -95,8 +95,9 @@ export const ProductForm = ({
     setImages([...images, ...newImages]);
   };
 
+  // ✅ FIXED: Added explicit types to filter callback parameters
   const handleRemoveImage = (index: number) => {
-    setImages(images.filter((_, i) => i !== index));
+    setImages(images.filter((_: any, i: number) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
