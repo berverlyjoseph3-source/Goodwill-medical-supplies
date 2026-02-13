@@ -62,7 +62,7 @@ export const ProductForm = ({
   };
 
   const handleRemoveFeature = (index: number) => {
-    setFeatures(features.filter((_, i) => i !== index));
+    setFeatures(features.filter((_: any, i: number) => i !== index));
   };
 
   const handleFeatureChange = (index: number, value: string) => {
@@ -75,7 +75,6 @@ export const ProductForm = ({
     setSpecifications([...specifications, { name: '', value: '' }]);
   };
 
-  // ✅ FIXED: Added explicit types to filter callback parameters
   const handleRemoveSpecification = (index: number) => {
     setSpecifications(specifications.filter((_: any, i: number) => i !== index));
   };
@@ -91,11 +90,10 @@ export const ProductForm = ({
 
     // In production, upload to cloud storage and get URLs
     // For now, create object URLs
-    const newImages = files.map(file => URL.createObjectURL(file));
+    const newImages = files.map((file: File) => URL.createObjectURL(file));
     setImages([...images, ...newImages]);
   };
 
-  // ✅ FIXED: Added explicit types to filter callback parameters
   const handleRemoveImage = (index: number) => {
     setImages(images.filter((_: any, i: number) => i !== index));
   };
@@ -108,9 +106,11 @@ export const ProductForm = ({
       price: parseFloat(formData.price),
       salePrice: formData.salePrice ? parseFloat(formData.salePrice) : null,
       inventory: parseInt(formData.inventory),
-      tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean),
-      features: features.filter(f => f.trim()),
-      specifications: specifications.filter(s => s.name && s.value),
+      // ✅ FIXED: Added explicit type to 'tag' parameter
+      tags: formData.tags.split(',').map((tag: string) => tag.trim()).filter(Boolean),
+      // ✅ FIXED: Added explicit type to 'f' parameter
+      features: features.filter((f: string) => f.trim()),
+      specifications: specifications.filter((s: any) => s.name && s.value),
       images,
     });
   };
