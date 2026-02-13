@@ -62,7 +62,6 @@
     "@types/bcryptjs": "2.4.6",
     "@types/micro": "7.3.7",
     "@types/chart.js": "2.9.41",
-    "@types/react-chartjs-2": "2.5.8",
     "typescript": "5.3.3",
     "prisma": "5.7.0",
     "ts-node": "10.9.2",
