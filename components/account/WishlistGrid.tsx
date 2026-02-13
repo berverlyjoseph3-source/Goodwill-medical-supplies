@@ -12,14 +12,15 @@ export const WishlistGrid = ({ items }: WishlistGridProps) => {
   const addToCart = useCartStore((state) => state.addItem);
 
   const handleAddToCart = (product: any) => {
-    // ✅ FIXED: Removed 'slug' property as it's not in CartItem type
+    // ✅ FIXED: Added inventory property (required by CartItem type)
     addToCart({
       id: product.id,
       name: product.name,
       price: product.salePrice || product.price,
       image: product.image,
       quantity: 1,
-      // slug: product.slug,  // <-- REMOVED THIS LINE
+      inventory: product.inventory || 0, // <-- ADD THIS LINE
+      // slug: product.slug,  // <-- REMOVED
     });
     toast.success(`${product.name} added to cart`);
   };
