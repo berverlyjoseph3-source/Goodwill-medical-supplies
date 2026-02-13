@@ -37,9 +37,7 @@
       }
     }
   ],
-  "env": {
-    "NEXT_PUBLIC_VERCEL_ENV": "@vercel_env"
-  },
+
   "regions": ["iad1"],
   "public": false,
   "github": {
