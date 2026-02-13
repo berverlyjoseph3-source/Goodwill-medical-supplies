@@ -1,0 +1,123 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]';
+import { prisma } from '../../../lib/prisma';
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== 'GET') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
+  const session = await getServerSession(req, res, authOptions);
+
+  if (!session || (session.user.role !== 'ADMIN' && session.user.role !== 'MANAGER')) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+
+  try {
+    // Get date ranges
+    const now = new Date();
+    const startOfDay = new Date(now.setHours(0, 0, 0, 0));
+    const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+
+    // Get counts
+    const [
+      totalOrders,
+      todayOrders,
+      weekOrders,
+      monthOrders,
+      yearOrders,
+      totalRevenue,
+      todayRevenue,
+      weekRevenue,
+      monthRevenue,
+      yearRevenue,
+      totalProducts,
+      lowStockCount,
+      totalUsers,
+      newUsersToday,
+    ] = await Promise.all([
+      prisma.order.count(),
+      prisma.order.count({ where: { createdAt: { gte: startOfDay } } }),
+      prisma.order.count({ where: { createdAt: { gte: startOfWeek } } }),
+      prisma.order.count({ where: { createdAt: { gte: startOfMonth } } }),
+      prisma.order.count({ where: { createdAt: { gte: startOfYear } } }),
+      prisma.order.aggregate({ _sum: { total: true }, where: { paymentStatus: 'PAID' } }),
+      prisma.order.aggregate({ _sum: { total: true }, where: { createdAt: { gte: startOfDay }, paymentStatus: 'PAID' } }),
+      prisma.order.aggregate({ _sum: { total: true }, where: { createdAt: { gte: startOfWeek }, paymentStatus: 'PAID' } }),
+      prisma.order.aggregate({ _sum: { total: true }, where: { createdAt: { gte: startOfMonth }, paymentStatus: 'PAID' } }),
+      prisma.order.aggregate({ _sum: { total: true }, where: { createdAt: { gte: startOfYear }, paymentStatus: 'PAID' } }),
+      prisma.product.count(),
+      prisma.product.count({ where: { inventory: { lt: 10 } } }),
+      prisma.user.count(),
+      prisma.user.count({ where: { createdAt: { gte: startOfDay } } }),
+    ]);
+
+    // Get sales by category
+    const salesByCategory = await prisma.product.groupBy({
+      by: ['categoryId'],
+      _sum: {
+        price: true,
+      },
+      orderBy: {
+        _sum: {
+          price: 'desc',
+        },
+      },
+      take: 5,
+    });
+
+    // Get top products
+    const topProducts = await prisma.product.findMany({
+      take: 5,
+      orderBy: {
+        reviewCount: 'desc',
+      },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        image: true,
+        price: true,
+        salePrice: true,
+        reviewCount: true,
+        rating: true,
+      },
+    });
+
+    return res.status(200).json({
+      orders: {
+        total: totalOrders,
+        today: todayOrders,
+        week: weekOrders,
+        month: monthOrders,
+        year: yearOrders,
+      },
+      revenue: {
+        total: totalRevenue._sum.total || 0,
+        today: todayRevenue._sum.total || 0,
+        week: weekRevenue._sum.total || 0,
+        month: monthRevenue._sum.total || 0,
+        year: yearRevenue._sum.total || 0,
+      },
+      products: {
+        total: totalProducts,
+        lowStock: lowStockCount,
+      },
+      users: {
+        total: totalUsers,
+        newToday: newUsersToday,
+      },
+      salesByCategory,
+      topProducts,
+    });
+  } catch (error) {
+    console.error('Stats API error:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}

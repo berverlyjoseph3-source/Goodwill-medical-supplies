@@ -1,0 +1,36 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Toaster } from 'react-hot-toast';
+import { SessionProvider } from 'next-auth/react';
+import { ProgressBar } from '../components/ui/ProgressBar';
+import '../styles/globals.css';  // This MUST be here
+
+const queryClient = new QueryClient();
+
+export default function App({ 
+  Component, 
+  pageProps: { session, ...pageProps } 
+}) {
+  return (
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        <ProgressBar />
+        <Component {...pageProps} />
+        <Toaster 
+          position="bottom-center"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#fff',
+              color: '#1e293b',
+              padding: '16px',
+              borderRadius: '8px',
+              fontSize: '14px',
+              fontWeight: '500',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            },
+          }}
+        />
+      </QueryClientProvider>
+    </SessionProvider>
+  );
+}

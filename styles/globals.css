@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-medical-blue: 0 112 243;
+    --color-medical-blue-dark: 0 86 179;
+    --color-soft-gray: 248 250 252;
+    --color-subtle-green: 72 187 120;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-800 antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-medical-blue ring-offset-2;
+  }
+
+  /* Remove default button styles */
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Primary Button - Medical Blue */
+  .btn-primary {
+    @apply bg-[#0070f3] text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-[#0056b3] transition-all duration-200 
+           focus:ring-4 focus:ring-[#0070f3]/50 disabled:opacity-50 
+           disabled:cursor-not-allowed text-base md:text-lg min-h-[44px]
+           shadow-sm hover:shadow-md inline-flex items-center justify-center;
+  }
+
+  /* Secondary Button - White with Blue Border */
+  .btn-secondary {
+    @apply bg-white border-2 border-[#0070f3] text-[#0070f3] 
+           px-6 py-3 rounded-lg font-semibold hover:bg-[#0070f3]/5 
+           transition-all duration-200 focus:ring-4 focus:ring-[#0070f3]/50 
+           min-h-[44px] shadow-sm hover:shadow-md inline-flex items-center justify-center;
+  }
+
+  /* Container Padding */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-sale {
+    @apply badge bg-red-500 text-white;
+  }
+
+  .badge-new {
+    @apply badge bg-subtle-green text-white;
+  }
+
+  /* Form Inputs */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+           focus:outline-none focus:ring-2 focus:ring-[#0070f3] focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+
+  /* Filter Sidebar */
+  .filter-section {
+    @apply border-b border-gray-200 py-4;
+  }
+
+  .filter-title {
+    @apply flex items-center justify-between w-full text-left font-medium text-slate-700;
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-medical {
+    @apply bg-gradient-to-br from-[#0070f3]/10 via-white to-white;
+  }
+
+  .bg-gradient-hero {
+    @apply bg-gradient-to-r from-[#0070f3] to-[#0056b3];
+  }
+}
+
+/* Swiper Custom Styles */
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-[#0070f3] !important;
+  @apply bg-white rounded-full w-10 h-10 shadow-md !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply text-sm font-bold !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-[#0070f3] !important;
+}
+
+/* Loading States */
+.loading {
+  @apply relative overflow-hidden;
+}
+
+.loading::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

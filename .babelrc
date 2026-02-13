@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["next/babel", {
+      "transform-runtime": {
+        "regenerator": true,
+        "absoluteRuntime": false
+      }
+    }]
+  ],
+  "plugins": []
+}

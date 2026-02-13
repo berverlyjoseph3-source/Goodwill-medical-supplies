@@ -1,0 +1,59 @@
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { TESTIMONIALS } from '../../constants/images';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+export const Testimonials = ({ testimonials = TESTIMONIALS }) => {
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={30}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      breakpoints={{
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      className="pb-12"
+    >
+      {testimonials.map((testimonial) => (
+        <SwiperSlide key={testimonial.id}>
+          <div className="bg-white p-6 rounded-xl shadow-sm h-full flex flex-col">
+            <div className="flex items-center mb-4">
+              <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">{testimonial.name}</h3>
+                <p className="text-sm text-slate-500">
+                  {testimonial.role}
+                  {testimonial.hospital && `, ${testimonial.hospital}`}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <StarIcon key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-200'}`} />
+              ))}
+            </div>
+            
+            <p className="text-slate-600 flex-1">"{testimonial.content}"</p>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};

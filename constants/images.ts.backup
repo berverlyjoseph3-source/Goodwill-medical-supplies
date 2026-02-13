@@ -1,0 +1,499 @@
+// constants/images.ts
+// High-quality medical images from Unsplash (free to use)
+
+export const MEDICAL_IMAGES = {
+  // ============ HERO & BANNERS ============
+  hero: {
+    main: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80', // Doctor with patient
+    emergency: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80', // Emergency room
+    surgery: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&q=80', // Surgery team
+    hospital: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80', // Hospital corridor
+    pharmacy: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=80', // Medical supplies
+  },
+
+  // ============ CATEGORY BANNERS ============
+  categories: {
+    mobility: 'https://images.unsplash.com/photo-1584518938427-8fd3918eb3c0?w=800&q=80', // Wheelchair
+    respiratory: 'https://images.unsplash.com/photo-1584547366618-c4673b5e9b16?w=800&q=80', // Oxygen mask
+    hospitalFurniture: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=800&q=80', // Hospital bed
+    diagnostic: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80', // Medical devices
+    ppe: 'https://images.unsplash.com/photo-1584636633446-b9c3d91a8d24?w=800&q=80', // PPE masks
+    homeCare: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80', // Senior care
+  },
+
+  // ============ PRODUCT IMAGES ============
+  products: {
+    // Mobility Aids
+    wheelchairStandard: 'https://images.unsplash.com/photo-1584518938427-8fd3918eb3c0?w=600&q=80',
+    wheelchairElectric: 'https://images.unsplash.com/photo-1584518962554-17041c39b3f8?w=600&q=80',
+    walker: 'https://images.unsplash.com/photo-1584518938427-8fd3918eb3c0?w=600&q=80',
+    mobilityScooter: 'https://images.unsplash.com/photo-1584518938427-8fd3918eb3c0?w=600&q=80',
+    
+    // Respiratory
+    oxygenConcentrator: 'https://images.unsplash.com/photo-1584547366618-c4673b5e9b16?w=600&q=80',
+    cpapMachine: 'https://images.unsplash.com/photo-1584547366618-c4673b5e9b16?w=600&q=80',
+    ventilator: 'https://images.unsplash.com/photo-1584547366618-c4673b5e9b16?w=600&q=80',
+    nebulizer: 'https://images.unsplash.com/photo-1584547366618-c4673b5e9b16?w=600&q=80',
+    
+    // Hospital Furniture
+    hospitalBed: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80',
+    examinationTable: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80',
+    patientChair: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80',
+    stretcher: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80',
+    
+    // Diagnostic
+    bpMonitor: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80',
+    stethoscope: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80',
+    thermometer: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&q=80',
+    pulseOximeter: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&q=80',
+    glucometer: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&q=80',
+    
+    // PPE
+    n95Mask: 'https://images.unsplash.com/photo-1584636633446-b9c3d91a8d24?w=600&q=80',
+    surgicalMask: 'https://images.unsplash.com/photo-1584636633446-b9c3d91a8d24?w=600&q=80',
+    gloves: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?w=600&q=80',
+    faceShield: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?w=600&q=80',
+    gown: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?w=600&q=80',
+    
+    // Home Care
+    patientMonitor: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80',
+    infusionPump: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80',
+    hospitalTable: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80',
+    commode: 'https://images.unsplash.com/photo-1584518938427-8fd3918eb3c0?w=600&q=80',
+  },
+
+  // ============ ABOUT US ============
+  about: {
+    team: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80',
+    facility: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1200&q=80',
+    warehouse: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80',
+    customerService: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80',
+  },
+
+  // ============ TESTIMONIALS ============
+  testimonials: {
+    doctor1: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80',
+    doctor2: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80',
+    patient1: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80',
+    patient2: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
+  },
+
+  // ============ BLOG ============
+  blog: {
+    covid: 'https://images.unsplash.com/photo-1584636633446-b9c3d91a8d24?w=800&q=80',
+    heartHealth: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80',
+    seniorCare: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80',
+    technology: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80',
+  },
+
+  // ============ CONTACT ============
+  contact: {
+    map: 'https://images.unsplash.com/photo-1577086664693-894d8405334a?w=800&q=80',
+    office: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+  }
+};
+
+// ============ PRODUCTS DATABASE ============
+export const PRODUCTS = [
+  // Mobility Aids
+  {
+    id: 1,
+    name: 'Premium Lightweight Wheelchair',
+    slug: 'premium-lightweight-wheelchair',
+    price: 299.99,
+    salePrice: 249.99,
+    image: MEDICAL_IMAGES.products.wheelchairStandard,
+    category: 'Mobility Aids',
+    categorySlug: 'mobility-aids',
+    rating: 4.8,
+    reviewCount: 124,
+    inventory: 15,
+    sku: 'MW-1001',
+    brand: 'Goodwill Medical',
+    description: 'Lightweight aluminum frame, comfortable padded seat, and durable wheels. Perfect for daily use.',
+    features: [
+      'Weight capacity: 300 lbs',
+      'Frame material: Aluminum',
+      'Seat width: 18 inches',
+      'Weight: 35 lbs',
+      'Foldable design'
+    ],
+    deliveryEstimate: '2-3 business days',
+    warranty: '2 years',
+  },
+  {
+    id: 2,
+    name: 'Electric Power Wheelchair',
+    slug: 'electric-power-wheelchair',
+    price: 1299.99,
+    salePrice: 1099.99,
+    image: MEDICAL_IMAGES.products.wheelchairElectric,
+    category: 'Mobility Aids',
+    categorySlug: 'mobility-aids',
+    rating: 4.7,
+    reviewCount: 56,
+    inventory: 8,
+    sku: 'MW-1002',
+    brand: 'Goodwill Medical',
+    description: 'Electric wheelchair with joystick control, long battery life, and comfortable seating.',
+    features: [
+      'Weight capacity: 350 lbs',
+      'Battery range: 15 miles',
+      'Top speed: 5 mph',
+      'Weight: 120 lbs',
+      'Adjustable armrests'
+    ],
+    deliveryEstimate: '5-7 business days',
+    warranty: '3 years',
+  },
+  
+  // Respiratory Equipment
+  {
+    id: 3,
+    name: 'Portable Oxygen Concentrator',
+    slug: 'portable-oxygen-concentrator',
+    price: 899.99,
+    salePrice: 799.99,
+    image: MEDICAL_IMAGES.products.oxygenConcentrator,
+    category: 'Respiratory Equipment',
+    categorySlug: 'respiratory',
+    rating: 4.9,
+    reviewCount: 89,
+    inventory: 12,
+    sku: 'RE-2001',
+    brand: 'HealthCare Pro',
+    description: 'Compact and lightweight, provides continuous oxygen flow. Battery lasts up to 5 hours.',
+    features: [
+      'Oxygen output: 1-5 L/min',
+      'Weight: 5 lbs',
+      'Battery life: 5 hours',
+      'Noise level: <40 dB',
+      'Includes carrying case'
+    ],
+    deliveryEstimate: '2-3 business days',
+    warranty: '2 years',
+  },
+  {
+    id: 4,
+    name: 'CPAP Machine with Heated Humidifier',
+    slug: 'cpap-machine',
+    price: 599.99,
+    salePrice: 549.99,
+    image: MEDICAL_IMAGES.products.cpapMachine,
+    category: 'Respiratory Equipment',
+    categorySlug: 'respiratory',
+    rating: 4.8,
+    reviewCount: 142,
+    inventory: 18,
+    sku: 'RE-2002',
+    brand: 'MedTech',
+    description: 'Auto-adjusting CPAP with heated humidifier for comfortable sleep therapy.',
+    features: [
+      'Pressure range: 4-20 cmH2O',
+      'Auto-ramp feature',
+      'Heated humidifier',
+      'Whisper-quiet operation',
+      'Data tracking via app'
+    ],
+    deliveryEstimate: '2-3 business days',
+    warranty: '2 years',
+  },
+  
+  // Hospital Furniture
+  {
+    id: 5,
+    name: 'Adjustable Electric Hospital Bed',
+    slug: 'adjustable-hospital-bed',
+    price: 1299.99,
+    image: MEDICAL_IMAGES.products.hospitalBed,
+    category: 'Hospital Furniture',
+    categorySlug: 'hospital-furniture',
+    rating: 4.7,
+    reviewCount: 56,
+    inventory: 7,
+    sku: 'HF-3001',
+    brand: 'CarePlus',
+    description: 'Fully adjustable electric bed with remote control. Includes side rails and locking casters.',
+    features: [
+      'Weight capacity: 450 lbs',
+      'Electric adjustment',
+      'Includes side rails',
+      'Locking casters',
+      'Mattress included'
+    ],
+    deliveryEstimate: '7-10 business days',
+    warranty: '5 years',
+  },
+  {
+    id: 6,
+    name: 'Deluxe Examination Table',
+    slug: 'examination-table',
+    price: 899.99,
+    image: MEDICAL_IMAGES.products.examinationTable,
+    category: 'Hospital Furniture',
+    categorySlug: 'hospital-furniture',
+    rating: 4.6,
+    reviewCount: 34,
+    inventory: 5,
+    sku: 'HF-3002',
+    brand: 'CarePlus',
+    description: 'Electric examination table with paper roll holder and storage drawer.',
+    features: [
+      'Weight capacity: 500 lbs',
+      'Electric height adjustment',
+      'Backrest adjustment',
+      'Paper roll holder',
+      'Storage drawer'
+    ],
+    deliveryEstimate: '5-7 business days',
+    warranty: '3 years',
+  },
+  
+  // Diagnostic Devices
+  {
+    id: 7,
+    name: 'Digital Blood Pressure Monitor',
+    slug: 'digital-bp-monitor',
+    price: 49.99,
+    image: MEDICAL_IMAGES.products.bpMonitor,
+    category: 'Diagnostic Devices',
+    categorySlug: 'diagnostic',
+    rating: 4.8,
+    reviewCount: 203,
+    inventory: 45,
+    sku: 'DD-4001',
+    brand: 'Vital Signs',
+    description: 'Automatic inflation, large LCD display, detects irregular heartbeat.',
+    features: [
+      'One-touch operation',
+      'Large LCD display',
+      'Irregular heartbeat detection',
+      '200 memory recall',
+      'Includes 4 AA batteries'
+    ],
+    deliveryEstimate: '1-2 business days',
+    warranty: '1 year',
+  },
+  {
+    id: 8,
+    name: 'Professional Stethoscope',
+    slug: 'professional-stethoscope',
+    price: 89.99,
+    salePrice: 79.99,
+    image: MEDICAL_IMAGES.products.stethoscope,
+    category: 'Diagnostic Devices',
+    categorySlug: 'diagnostic',
+    rating: 4.9,
+    reviewCount: 178,
+    inventory: 32,
+    sku: 'DD-4002',
+    brand: 'MedTech',
+    description: 'Dual-head stethoscope with non-chill rim and adjustable frequency.',
+    features: [
+      'Dual-head design',
+      'Non-chill rim',
+      'Adjustable frequency',
+      'Latex-free tubing',
+      'Includes 2 sets of ear tips'
+    ],
+    deliveryEstimate: '1-2 business days',
+    warranty: '2 years',
+  },
+  
+  // PPE & Disposables
+  {
+    id: 9,
+    name: 'N95 Respirator Masks (50 pack)',
+    slug: 'n95-masks-50-pack',
+    price: 89.99,
+    image: MEDICAL_IMAGES.products.n95Mask,
+    category: 'PPE & Disposables',
+    categorySlug: 'ppe',
+    rating: 4.7,
+    reviewCount: 167,
+    inventory: 0,
+    sku: 'PPE-5001',
+    brand: 'HealthCare Pro',
+    description: 'FDA-approved N95 respirator masks. 95% filtration efficiency.',
+    features: [
+      'FDA approved',
+      'NIOSH certified',
+      '95% filtration',
+      'Adjustable nose clip',
+      'Latex-free straps'
+    ],
+    deliveryEstimate: '3-5 business days',
+    warranty: 'Non-returnable',
+  },
+  {
+    id: 10,
+    name: 'Nitrile Exam Gloves (100 pack)',
+    slug: 'nitrile-gloves-100-pack',
+    price: 24.99,
+    image: MEDICAL_IMAGES.products.gloves,
+    category: 'PPE & Disposables',
+    categorySlug: 'ppe',
+    rating: 4.6,
+    reviewCount: 98,
+    inventory: 150,
+    sku: 'PPE-5002',
+    brand: 'Goodwill Medical',
+    description: 'Powder-free nitrile gloves. Latex-free, puncture resistant.',
+    features: [
+      'Powder-free',
+      'Latex-free',
+      'Puncture resistant',
+      'Ambidextrous',
+      'Sizes: S, M, L, XL'
+    ],
+    deliveryEstimate: '1-2 business days',
+    warranty: '30-day return',
+  },
+  
+  // Home Care Supplies
+  {
+    id: 11,
+    name: 'Multi-Parameter Patient Monitor',
+    slug: 'patient-monitor',
+    price: 2499.99,
+    image: MEDICAL_IMAGES.products.patientMonitor,
+    category: 'Home Care Supplies',
+    categorySlug: 'home-care',
+    rating: 4.9,
+    reviewCount: 34,
+    inventory: 5,
+    sku: 'HC-6001',
+    brand: 'Vital Signs',
+    description: 'Monitors ECG, SpO2, blood pressure, and temperature. 12-inch touchscreen.',
+    features: [
+      '12-inch touchscreen',
+      'ECG, SpO2, NIBP, Temp',
+      'Up to 8 hours battery',
+      'Alarm system',
+      'Data storage'
+    ],
+    deliveryEstimate: '3-5 business days',
+    warranty: '3 years',
+  },
+  {
+    id: 12,
+    name: 'Overbed Hospital Table',
+    slug: 'overbed-table',
+    price: 149.99,
+    image: MEDICAL_IMAGES.products.hospitalTable,
+    category: 'Home Care Supplies',
+    categorySlug: 'home-care',
+    rating: 4.5,
+    reviewCount: 42,
+    inventory: 20,
+    sku: 'HC-6002',
+    brand: 'CarePlus',
+    description: 'Adjustable overbed table with tilting top and casters.',
+    features: [
+      'Height adjustable',
+      'Tilting tabletop',
+      'Locking casters',
+      'Easy assembly',
+      'Weight capacity: 50 lbs'
+    ],
+    deliveryEstimate: '2-3 business days',
+    warranty: '1 year',
+  },
+];
+
+// ============ CATEGORIES ============
+export const CATEGORIES = [
+  {
+    id: 1,
+    name: 'Mobility Aids',
+    slug: 'mobility-aids',
+    image: MEDICAL_IMAGES.categories.mobility,
+    description: 'Wheelchairs, walkers, scooters, and rollators',
+    productCount: 124,
+    icon: '🦽',
+  },
+  {
+    id: 2,
+    name: 'Respiratory Equipment',
+    slug: 'respiratory',
+    image: MEDICAL_IMAGES.categories.respiratory,
+    description: 'Oxygen concentrators, CPAP, ventilators',
+    productCount: 89,
+    icon: '💨',
+  },
+  {
+    id: 3,
+    name: 'Hospital Furniture',
+    slug: 'hospital-furniture',
+    image: MEDICAL_IMAGES.categories.hospitalFurniture,
+    description: 'Hospital beds, examination tables, patient chairs',
+    productCount: 56,
+    icon: '🛏️',
+  },
+  {
+    id: 4,
+    name: 'Diagnostic Devices',
+    slug: 'diagnostic',
+    image: MEDICAL_IMAGES.categories.diagnostic,
+    description: 'BP monitors, stethoscopes, thermometers',
+    productCount: 92,
+    icon: '🩺',
+  },
+  {
+    id: 5,
+    name: 'PPE & Disposables',
+    slug: 'ppe',
+    image: MEDICAL_IMAGES.categories.ppe,
+    description: 'Masks, gloves, gowns, sanitizers',
+    productCount: 150,
+    icon: '🧤',
+  },
+  {
+    id: 6,
+    name: 'Home Care Supplies',
+    slug: 'home-care',
+    image: MEDICAL_IMAGES.categories.homeCare,
+    description: 'Daily living aids, bathroom safety',
+    productCount: 78,
+    icon: '🏠',
+  },
+];
+
+// ============ TESTIMONIALS ============
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Dr. Sarah Chen',
+    role: 'Chief of Surgery',
+    hospital: 'Memorial Hospital',
+    image: MEDICAL_IMAGES.testimonials.doctor1,
+    content: 'Goodwill Medical Supplies has been our trusted partner for over a decade. Their equipment quality and customer service are exceptional.',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'James Wilson',
+    role: 'Home Care Patient',
+    image: MEDICAL_IMAGES.testimonials.patient1,
+    content: 'The home care equipment I purchased has greatly improved my quality of life. Professional service from start to finish.',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Maria Rodriguez',
+    role: 'Clinic Director',
+    hospital: 'Community Health Center',
+    image: MEDICAL_IMAGES.testimonials.doctor2,
+    content: 'Reliable supplier with competitive pricing. Their diagnostic devices are top-notch and very accurate.',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Robert Johnson',
+    role: 'Physical Therapist',
+    hospital: 'Rehab Center',
+    image: MEDICAL_IMAGES.testimonials.patient2,
+    content: 'Excellent selection of mobility aids. My patients love the quality and comfort.',
+    rating: 5,
+  },
+];
