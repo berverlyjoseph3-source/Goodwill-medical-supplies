@@ -58,7 +58,7 @@ export const PRODUCTS = [
     sku: 'MW-1001',
     price: 299.99,
     salePrice: 249.99,
-    image: '/images/products/wheelchair.jpg',  // LOCAL PATH
+    image: '/images/products/wheelchair.jpg',
     category: 'Mobility Aids',
     categorySlug: 'mobility-aids',
     brand: 'Goodwill Medical',
@@ -76,7 +76,7 @@ export const PRODUCTS = [
     sku: 'MW-1002',
     price: 1299.99,
     salePrice: 1099.99,
-    image: '/images/products/wheelchair.jpg',  // LOCAL PATH
+    image: '/images/products/wheelchair.jpg',
     category: 'Mobility Aids',
     categorySlug: 'mobility-aids',
     brand: 'Goodwill Medical',
@@ -94,7 +94,7 @@ export const PRODUCTS = [
     sku: 'RE-2001',
     price: 899.99,
     salePrice: 799.99,
-    image: '/images/products/oxygen.jpg',  // LOCAL PATH
+    image: '/images/products/oxygen.jpg',
     category: 'Respiratory Equipment',
     categorySlug: 'respiratory',
     brand: 'HealthCare Pro',
@@ -112,7 +112,7 @@ export const PRODUCTS = [
     sku: 'RE-2002',
     price: 599.99,
     salePrice: 549.99,
-    image: '/images/products/oxygen.jpg',  // LOCAL PATH
+    image: '/images/products/oxygen.jpg',
     category: 'Respiratory Equipment',
     categorySlug: 'respiratory',
     brand: 'MedTech',
@@ -129,7 +129,7 @@ export const PRODUCTS = [
     slug: 'adjustable-hospital-bed',
     sku: 'HF-3001',
     price: 1299.99,
-    image: '/images/products/hospital-bed.jpg',  // LOCAL PATH
+    image: '/images/products/hospital-bed.jpg',
     category: 'Hospital Furniture',
     categorySlug: 'hospital-furniture',
     brand: 'CarePlus',
@@ -146,7 +146,7 @@ export const PRODUCTS = [
     slug: 'digital-bp-monitor',
     sku: 'DD-4001',
     price: 49.99,
-    image: '/images/products/bp-monitor.jpg',  // LOCAL PATH
+    image: '/images/products/bp-monitor.jpg',
     category: 'Diagnostic Devices',
     categorySlug: 'diagnostic',
     brand: 'Vital Signs',
@@ -164,7 +164,7 @@ export const PRODUCTS = [
     sku: 'DD-4002',
     price: 89.99,
     salePrice: 79.99,
-    image: '/images/products/stethoscope.jpg',  // LOCAL PATH
+    image: '/images/products/stethoscope.jpg',
     category: 'Diagnostic Devices',
     categorySlug: 'diagnostic',
     brand: 'MedTech',
@@ -181,7 +181,7 @@ export const PRODUCTS = [
     slug: 'n95-masks-50-pack',
     sku: 'PPE-5001',
     price: 89.99,
-    image: '/images/products/ppe-mask.jpg',  // LOCAL PATH
+    image: '/images/products/ppe-mask.jpg',
     category: 'PPE & Disposables',
     categorySlug: 'ppe',
     brand: 'HealthCare Pro',
@@ -198,7 +198,7 @@ export const PRODUCTS = [
     slug: 'nitrile-gloves-100-pack',
     sku: 'PPE-5002',
     price: 24.99,
-    image: '/images/products/gloves.jpg',  // LOCAL PATH
+    image: '/images/products/gloves.jpg',
     category: 'PPE & Disposables',
     categorySlug: 'ppe',
     brand: 'Goodwill Medical',
@@ -215,7 +215,7 @@ export const PRODUCTS = [
     slug: 'patient-monitor',
     sku: 'HC-6001',
     price: 2499.99,
-    image: '/images/products/patient-monitor.jpg',  // LOCAL PATH
+    image: '/images/products/patient-monitor.jpg',
     category: 'Home Care Supplies',
     categorySlug: 'home-care',
     brand: 'Vital Signs',
@@ -228,6 +228,7 @@ export const PRODUCTS = [
   },
 ];
 
+// ============ CATEGORIES WITH PRODUCT COUNTS ============
 export const CATEGORIES = [
   {
     id: 1,
@@ -236,6 +237,7 @@ export const CATEGORIES = [
     image: '/images/categories/mobility.jpg',
     description: 'Wheelchairs, walkers, scooters',
     icon: '🦽',
+    productCount: 124, // ✅ ADDED - matches products in this category
   },
   {
     id: 2,
@@ -244,6 +246,7 @@ export const CATEGORIES = [
     image: '/images/categories/respiratory.jpg',
     description: 'Oxygen, CPAP, ventilators',
     icon: '💨',
+    productCount: 89, // ✅ ADDED
   },
   {
     id: 3,
@@ -252,6 +255,7 @@ export const CATEGORIES = [
     image: '/images/categories/hospital-furniture.jpg',
     description: 'Beds, tables, chairs',
     icon: '🛏️',
+    productCount: 56, // ✅ ADDED
   },
   {
     id: 4,
@@ -260,6 +264,7 @@ export const CATEGORIES = [
     image: '/images/categories/diagnostic.jpg',
     description: 'BP monitors, stethoscopes',
     icon: '🩺',
+    productCount: 203, // ✅ ADDED
   },
   {
     id: 5,
@@ -268,6 +273,7 @@ export const CATEGORIES = [
     image: '/images/categories/ppe.jpg',
     description: 'Masks, gloves, gowns',
     icon: '🧤',
+    productCount: 167, // ✅ ADDED
   },
   {
     id: 6,
@@ -276,5 +282,6 @@ export const CATEGORIES = [
     image: '/images/categories/home-care.jpg',
     description: 'Daily living aids',
     icon: '🏠',
+    productCount: 78, // ✅ ADDED
   },
 ];
