@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { TrashIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { TrashIcon, ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline';
 import toast from 'react-hot-toast';
 import { useCartStore } from '../../stores/cartStore';
 
@@ -12,13 +12,14 @@ export const WishlistGrid = ({ items }: WishlistGridProps) => {
   const addToCart = useCartStore((state) => state.addItem);
 
   const handleAddToCart = (product: any) => {
+    // ✅ FIXED: Removed 'slug' property as it's not in CartItem type
     addToCart({
       id: product.id,
       name: product.name,
       price: product.salePrice || product.price,
       image: product.image,
       quantity: 1,
-      slug: product.slug,
+      // slug: product.slug,  // <-- REMOVED THIS LINE
     });
     toast.success(`${product.name} added to cart`);
   };
@@ -28,7 +29,7 @@ export const WishlistGrid = ({ items }: WishlistGridProps) => {
       const response = await fetch(`/api/wishlist/${productId}`, {
         method: 'DELETE',
       });
-      
+
       if (response.ok) {
         toast.success('Removed from wishlist');
         // Refresh the page
@@ -75,14 +76,14 @@ export const WishlistGrid = ({ items }: WishlistGridProps) => {
               />
             </div>
           </Link>
-          
+
           <div className="p-4">
             <Link href={`/product/${product.slug}`}>
               <h3 className="font-medium text-slate-900 mb-2 group-hover:text-medical-blue transition-colors line-clamp-2">
                 {product.name}
               </h3>
             </Link>
-            
+
             <div className="flex items-center justify-between mb-3">
               <span className="text-lg font-bold text-slate-900">
                 ${product.salePrice || product.price}
@@ -93,7 +94,7 @@ export const WishlistGrid = ({ items }: WishlistGridProps) => {
                 </span>
               )}
             </div>
-            
+
             <div className="flex space-x-2">
               <button
                 onClick={() => handleAddToCart(product)}
