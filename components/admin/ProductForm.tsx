@@ -75,8 +75,9 @@ export const ProductForm = ({
     setSpecifications([...specifications, { name: '', value: '' }]);
   };
 
+  // ✅ FIXED: Added explicit types to filter callback parameters
   const handleRemoveSpecification = (index: number) => {
-    setSpecifications(specifications.filter((_, i) => i !== index));
+    setSpecifications(specifications.filter((_: any, i: number) => i !== index));
   };
 
   const handleSpecificationChange = (index: number, field: string, value: string) => {
@@ -87,7 +88,7 @@ export const ProductForm = ({
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    
+
     // In production, upload to cloud storage and get URLs
     // For now, create object URLs
     const newImages = files.map(file => URL.createObjectURL(file));
@@ -100,7 +101,7 @@ export const ProductForm = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     onSubmit({
       ...formData,
       price: parseFloat(formData.price),
@@ -120,7 +121,7 @@ export const ProductForm = ({
         <h2 className="text-lg font-semibold text-slate-900 mb-4">
           Basic Information
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
