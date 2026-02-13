@@ -14,6 +14,12 @@ interface ProductFormProps {
   isSubmitting: boolean;
 }
 
+// Define types for specifications
+interface Specification {
+  name: string;
+  value: string;
+}
+
 export const ProductForm = ({ 
   categories, 
   initialData, 
@@ -42,10 +48,10 @@ export const ProductForm = ({
   const [features, setFeatures] = useState<string[]>(
     initialData?.features || ['']
   );
-  const [specifications, setSpecifications] = useState(
+  const [specifications, setSpecifications] = useState<Specification[]>(
     initialData?.specifications || [{ name: '', value: '' }]
   );
-  const [images, setImages] = useState(
+  const [images, setImages] = useState<string[]>(
     initialData?.images?.map((img: any) => img.url) || []
   );
 
@@ -62,7 +68,7 @@ export const ProductForm = ({
   };
 
   const handleRemoveFeature = (index: number) => {
-    setFeatures(features.filter((_: any, i: number) => i !== index));
+    setFeatures(features.filter((_: string, i: number) => i !== index));
   };
 
   const handleFeatureChange = (index: number, value: string) => {
@@ -76,10 +82,10 @@ export const ProductForm = ({
   };
 
   const handleRemoveSpecification = (index: number) => {
-    setSpecifications(specifications.filter((_: any, i: number) => i !== index));
+    setSpecifications(specifications.filter((_: Specification, i: number) => i !== index));
   };
 
-  const handleSpecificationChange = (index: number, field: string, value: string) => {
+  const handleSpecificationChange = (index: number, field: keyof Specification, value: string) => {
     const newSpecs = [...specifications];
     newSpecs[index][field] = value;
     setSpecifications(newSpecs);
@@ -95,7 +101,7 @@ export const ProductForm = ({
   };
 
   const handleRemoveImage = (index: number) => {
-    setImages(images.filter((_: any, i: number) => i !== index));
+    setImages(images.filter((_: string, i: number) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -106,11 +112,9 @@ export const ProductForm = ({
       price: parseFloat(formData.price),
       salePrice: formData.salePrice ? parseFloat(formData.salePrice) : null,
       inventory: parseInt(formData.inventory),
-      // ✅ FIXED: Added explicit type to 'tag' parameter
       tags: formData.tags.split(',').map((tag: string) => tag.trim()).filter(Boolean),
-      // ✅ FIXED: Added explicit type to 'f' parameter
       features: features.filter((f: string) => f.trim()),
-      specifications: specifications.filter((s: any) => s.name && s.value),
+      specifications: specifications.filter((s: Specification) => s.name && s.value),
       images,
     });
   };
@@ -308,7 +312,7 @@ export const ProductForm = ({
                        focus:outline-none focus:ring-2 focus:ring-medical-blue focus:border-transparent"
             >
               <option value="">Select a category</option>
-              {categories.map((category) => (
+              {categories.map((category: any) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
                 </option>
@@ -353,12 +357,12 @@ export const ProductForm = ({
         </div>
 
         <div className="space-y-3">
-          {features.map((feature, index) => (
+          {features.map((feature: string, index: number) => (
             <div key={index} className="flex items-center space-x-2">
               <input
                 type="text"
                 value={feature}
-                onChange={(e) => handleFeatureChange(index, e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFeatureChange(index, e.target.value)}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg 
                          focus:outline-none focus:ring-2 focus:ring-medical-blue focus:border-transparent"
                 placeholder="e.g., Weight capacity: 300 lbs"
@@ -392,13 +396,13 @@ export const ProductForm = ({
         </div>
 
         <div className="space-y-3">
-          {specifications.map((spec, index) => (
+          {specifications.map((spec: Specification, index: number) => (
             <div key={index} className="flex items-center space-x-2">
               <input
                 type="text"
                 placeholder="Name"
                 value={spec.name}
-                onChange={(e) => handleSpecificationChange(index, 'name', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleSpecificationChange(index, 'name', e.target.value)}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg 
                          focus:outline-none focus:ring-2 focus:ring-medical-blue focus:border-transparent"
               />
@@ -406,7 +410,7 @@ export const ProductForm = ({
                 type="text"
                 placeholder="Value"
                 value={spec.value}
-                onChange={(e) => handleSpecificationChange(index, 'value', e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleSpecificationChange(index, 'value', e.target.value)}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg 
                          focus:outline-none focus:ring-2 focus:ring-medical-blue focus:border-transparent"
               />
@@ -429,7 +433,7 @@ export const ProductForm = ({
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {images.map((image, index) => (
+          {images.map((image: string, index: number) => (
             <div key={index} className="relative aspect-square bg-soft-gray rounded-lg overflow-hidden group">
               <Image
                 src={image}
